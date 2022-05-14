@@ -7,6 +7,7 @@ const Store = () => {
     <>
       <Heading>
         <h1>Browse the Store!</h1>
+        <p>New Arrivals for you! Check out our selection of products.</p>
       </Heading>
       <ProductsContainer>
         {products.map((product) => (

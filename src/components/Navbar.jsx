@@ -3,6 +3,9 @@ import { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import CartIcon from "../assets/icons/cart.svg";
 import styled from "styled-components";
+import CartContext from "../Context/Cart/CartContext";
+import { useContext } from "react";
+import Cart from "./Cart";
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
@@ -21,11 +24,14 @@ const Navbar = () => {
     };
   }, []);
 
+  // IExtract cartItems state from CartContext
+  const { cartItems, showHideCart } = useContext(CartContext);
+
   return (
     <Nav>
       <NavContainer>
         <Left>
-          <NavLink to="/">FASHION.</NavLink>
+          <Link to={"/"}>FASHION.</Link>
         </Left>
 
         <Right>
@@ -39,21 +45,26 @@ const Navbar = () => {
           >
             <NavList>
               <NavItem>
-                <NavLink to="/store">Store</NavLink>
+                <NavLink to={"/"}>Store</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink to="/about">About</NavLink>
+                <NavLink to={"/about"}>About</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink to="/">Contact</NavLink>
+                <a href="https://github.com/israelmitolu" target="_blank">
+                  Contact
+                </a>
               </NavItem>
               <NavItem>
-                <Link to="/cart">
+                <Link to={<Cart />} onClick={showHideCart}>
                   <p>Cart</p>
                   <NavCartItem>
                     <img src={CartIcon} alt="Shopping cart" />
-                    <CartCircle>3</CartCircle>
-                    {/* <div className="circle-bag">{cart.length}</div> */}
+                    {/* If the number of cartItems is greater than 0, display the
+                    number of items in the cart */}
+                    {cartItems.length > 0 && (
+                      <CartCircle>{cartItems.length}</CartCircle>
+                    )}
                   </NavCartItem>
                 </Link>
               </NavItem>
@@ -104,7 +115,7 @@ const NavContainer = styled.div`
   }
 
   @media (max-width: 500px) {
-    background-color: #fff;
+    background-color: #eee;
   }
 `;
 
@@ -124,7 +135,8 @@ const Left = styled.div`
   a {
     color: #13122e;
     font-weight: 700;
-    font-size: 1.25em;
+    font-size: 1.25rem;
+    font-family: "Cormorant Garamond", serif;
   }
 `;
 
@@ -149,7 +161,6 @@ const NavItem = styled.li`
 
   a {
     color: #13122e;
-    font-size: 0.9em;
     display: flex;
     justify-content: center;
     align-items: center;

@@ -1,8 +1,12 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { formatCurrency } from "../utils";
+import CartContext from "../Context/Cart/CartContext";
+import { useContext } from "react";
 
 const ProductCard = ({ product }) => {
+  const { addToCart } = useContext(CartContext);
+
   return (
     <CardWrapper>
       <ProductImage
@@ -18,7 +22,7 @@ const ProductCard = ({ product }) => {
 
         {/* <ButtonAddMore className="btn">Add More</ButtonAddMore> */}
 
-        <Button>Add to Cart</Button>
+        <Button onClick={() => addToCart(product)}>Add to Cart</Button>
       </ProductCardButtons>
     </CardWrapper>
   );

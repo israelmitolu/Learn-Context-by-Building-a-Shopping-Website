@@ -15,6 +15,11 @@ a {
   text-decoration: none;
 }
 
+p {
+  color: #55595c;
+  font-size: 0.9rem;
+}
+
 ul {
   list-style: none;
 }
@@ -23,7 +28,10 @@ h1,
 h2,
 h3 {
   font-family: "Cormorant Garamond", serif;
+  margin-bottom: 0.5rem;
 }
+
+/* Custom Classes */
 
 .btn {
   font-size: 11px;
@@ -43,4 +51,13 @@ h3 {
 
 .btn:hover {
   text-decoration: underline;
+}
+
+.close-cart-icon {
+  color: gray;
+  transition: transform 0.2s linear;
+}
+
+.close-cart-icon:hover {
+  transform: rotate(90deg);
 }
