@@ -1,6 +1,5 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
-import GithubIcon from "../assets/icons/logo-github.svg";
+import GithubIcon from "../../assets/icons/logo-github.svg";
 
 const About = () => {
   return (

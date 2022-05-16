@@ -1,7 +1,7 @@
 // General
 import { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
-import CartIcon from "../assets/icons/cart.svg";
+import CartIcon from "../../assets/icons/cart.svg";
 import styled from "styled-components";
 import CartContext from "../Context/Cart/CartContext";
 import { useContext } from "react";

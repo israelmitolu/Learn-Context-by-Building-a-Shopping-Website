@@ -3,7 +3,7 @@ import CartContext from "../Context/Cart/CartContext";
 import styled from "styled-components";
 import { formatCurrency } from "../utils";
 import CartItem from "./CartItem";
-import closeCircle from "../assets/icons/close-circle-outline.svg";
+import closeCircle from "../../assets/icons/close-circle-outline.svg";
 
 const Cart = () => {
   const { showCart, cartItems, showHideCart } = useContext(CartContext);
