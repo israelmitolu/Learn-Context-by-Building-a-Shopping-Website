@@ -3,7 +3,7 @@ import CartContext from "../Context/Cart/CartContext";
 import styled from "styled-components";
 import { formatCurrency } from "../utils";
 import CartItem from "./CartItem";
-import closeCircle from "../../assets/icons/close-circle-outline.svg";
+import closeCircle from "/assets/icons/close-circle-outline.svg";
 
 const Cart = () => {
   const { showCart, cartItems, showHideCart } = useContext(CartContext);
@@ -14,12 +14,7 @@ const Cart = () => {
       {showCart && (
         <CartWrapper>
           <div style={{ textAlign: "right" }}>
-            <img
-              src={closeCircle}
-              alt=""
-              onClick={showHideCart}
-              className="close-cart-icon"
-            />
+            <CloseCartIcon src={closeCircle} alt="" onClick={showHideCart} />
           </div>
           <CartInnerWrapper>
             {/* If cart is empty, display message, and if not, display each cart
@@ -91,4 +86,14 @@ const CartTotal = styled.div`
   justify-content: space-between;
 `;
 
+const CloseCartIcon = styled.img`
+  color: gray;
+  transition: transform 0.2s linear;
+  width: 20px;
+  height: auto;
+
+  &:hover {
+    transform: rotate(90deg);
+  }
+`;
 export default Cart;

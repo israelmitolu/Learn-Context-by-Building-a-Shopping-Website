@@ -52,14 +52,3 @@ h3 {
 .btn:hover {
   text-decoration: underline;
 }
-
-.close-cart-icon {
-  color: gray;
-  transition: transform 0.2s linear;
-  width: 1rem;
-  height: auto;
-}
-
-.close-cart-icon:hover {
-  transform: rotate(90deg);
-}
