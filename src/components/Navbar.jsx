@@ -5,13 +5,12 @@ import CartIcon from "../assets/icons/cart.svg";
 import styled from "styled-components";
 import CartContext from "../Context/Cart/CartContext";
 import { useContext } from "react";
-import Cart from "./Cart";
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
   const [innerWidth, setInnerWidth] = useState(window.innerWidth);
 
-  //   Get Screen Size
+  // Get Screen Size
   useEffect(() => {
     const changeWidth = () => {
       setInnerWidth(window.innerWidth);
@@ -24,7 +23,7 @@ const Navbar = () => {
     };
   }, []);
 
-  // IExtract cartItems state from CartContext
+  // Extract cartItems state from CartContext
   const { cartItems, showHideCart } = useContext(CartContext);
 
   return (
@@ -51,14 +50,14 @@ const Navbar = () => {
                 <NavLink to={"/about"}>About</NavLink>
               </NavItem>
               <NavItem>
-                <a href="https://github.com/israelmitolu" target="_blank">
+                <a href="https://twitter.com/israelmitolu" target="_blank">
                   Contact
                 </a>
               </NavItem>
               <NavItem>
-                <Link to={<Cart />} onClick={showHideCart}>
+                <span>
                   <p>Cart</p>
-                  <NavCartItem>
+                  <NavCartItem onClick={showHideCart}>
                     <img src={CartIcon} alt="Shopping cart" />
                     {/* If the number of cartItems is greater than 0, display the
                     number of items in the cart */}
@@ -66,7 +65,7 @@ const Navbar = () => {
                       <CartCircle>{cartItems.length}</CartCircle>
                     )}
                   </NavCartItem>
-                </Link>
+                </span>
               </NavItem>
             </NavList>
           </NavRightContainer>
@@ -159,7 +158,8 @@ const NavList = styled.ul`
 const NavItem = styled.li`
   margin: 0 1.25em;
 
-  a {
+  a,
+  span {
     color: #13122e;
     display: flex;
     justify-content: center;
@@ -167,6 +167,7 @@ const NavItem = styled.li`
 
     @media (max-width: 500px) {
       width: 100%;
+      align-items: center;
       justify-content: flex-start;
       padding: 1rem;
       border-bottom: 1px solid #cfcfd0;
@@ -188,9 +189,9 @@ const NavItem = styled.li`
   @media (max-width: 500px) {
     width: 100%;
 
-    &:nth-child(4) a {
+    &:nth-of-type(4) a {
       display: flex;
-      justify-content: space-between;
+      justify-content: space-between !important;
       align-items: center;
       border: none;
     }
@@ -248,7 +249,5 @@ const MenuBtn = styled.div`
     }
   }
 `;
-
-////Responsive Media Queries
 
 export default Navbar;

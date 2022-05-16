@@ -4,15 +4,15 @@ import styled from "styled-components";
 import { formatCurrency } from "../utils";
 
 const CartItem = ({ item }) => {
-  const removeItem = useContext(CartContext);
+  const { removeFromCart } = useContext(CartContext);
 
   return (
     <SingleCartItem>
-      <img src={item.image} alt={item.name} />
+      <Image src={item.image} alt={item.name} />
       <div>
         {item.name} - {formatCurrency(item.price)}
       </div>
-      <CartItemBtn onClick={() => removeItem(item.id)}></CartItemBtn>
+      <CartItemBtn onClick={() => removeFromCart(item.id)}>Remove</CartItemBtn>
     </SingleCartItem>
   );
 };
@@ -23,6 +23,9 @@ const SingleCartItem = styled.div`
   border-bottom: 1px solid gray;
   padding: 10px 0;
   margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
   &:nth-child(1) {
     border-top: 1px solid gray;
@@ -30,7 +33,7 @@ const SingleCartItem = styled.div`
 `;
 
 const CartItemBtn = styled.button`
-  margin-left: auto;
+  margin-left: 2rem;
   padding: 4px 8px;
   border-radius: 4px;
   border: none;
@@ -40,6 +43,12 @@ const CartItemBtn = styled.button`
   &:active {
     outline: none;
   }
+`;
+
+const Image = styled.img`
+  width: 100px;
+  height: auto;
+  padding-right: 2rem;
 `;
 
 export default CartItem;

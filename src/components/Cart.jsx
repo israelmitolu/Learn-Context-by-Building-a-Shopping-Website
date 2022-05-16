@@ -10,7 +10,7 @@ const Cart = () => {
 
   return (
     <>
-      // If cart is open, show cart
+      {/* If cart is open, show cart */}
       {showCart && (
         <CartWrapper>
           <div style={{ textAlign: "right" }}>
@@ -68,17 +68,19 @@ const CartInnerWrapper = styled.div`
   max-height: 50vh;
   overflow-y: auto;
 
-  li {
-    list-style-type: none;
-    height: 100px;
-    display: flex;
-    gap: 5px;
-    align-items: center;
+  ul {
+    li {
+      list-style-type: none;
+      height: 100px;
+      display: flex;
+      gap: 5px;
+      align-items: center;
 
-    img {
-      height: 100%;
-      width: 100px;
-      object-fit: cover;
+      img {
+        height: 100%;
+        width: 100px;
+        object-fit: cover;
+      }
     }
   }
 `;

@@ -6,7 +6,7 @@ import { ADD_TO_CART, REMOVE_ITEM, SHOW_HIDE_CART } from "./CartTypes";
 const CartState = ({ children }) => {
   //Initial State of the cart
   const initialState = {
-    showingCart: false,
+    showCart: false,
     cartItems: [],
   };
 
@@ -40,7 +40,7 @@ const CartState = ({ children }) => {
     //Add the above functions into the Context provider, and pass to the children
     <CartContext.Provider
       value={{
-        showingCart: state.showingCart,
+        showCart: state.showCart,
         cartItems: state.cartItems,
         addToCart,
         showHideCart,

@@ -4,11 +4,11 @@ import { SHOW_HIDE_CART, REMOVE_ITEM, ADD_TO_CART } from "./CartTypes.js";
 const CartReducer = (state, action) => {
   // The switch statement is checking the type of action that is being passed in
   switch (action.type) {
-    // If the action type is SHOW_HIDE_CART, we want to toggle the showingCart state
+    // If the action type is SHOW_HIDE_CART, we want to toggle the showCart state
     case SHOW_HIDE_CART:
       return {
         ...state,
-        showingCart: !state.showingCart,
+        showCart: !state.showCart,
       };
     // If the action type is REMOVE_ITEM, we want to remove the item from the cartItems array
     case REMOVE_ITEM:
