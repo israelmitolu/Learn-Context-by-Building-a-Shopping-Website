@@ -5,7 +5,12 @@ import CartContext from "../Context/Cart/CartContext";
 import { useContext } from "react";
 
 const ProductCard = ({ product }) => {
-  const { addToCart } = useContext(CartContext);
+  const { addToCart, cartItems } = useContext(CartContext);
+
+  //Whether the product is in the cart or not
+  const isInCart = (product) => {
+    return !!cartItems.find((item) => item.id === product.id);
+  };
 
   return (
     <CardWrapper>
@@ -20,9 +25,15 @@ const ProductCard = ({ product }) => {
           Details
         </Link>
 
-        {/* <ButtonAddMore className="btn">Add More</ButtonAddMore> */}
+        {isInCart(product) && (
+          <ButtonAddMore onClick={() => addToCart(product)} className="btn">
+            Add More
+          </ButtonAddMore>
+        )}
 
-        <Button onClick={() => addToCart(product)}>Add to Cart</Button>
+        {!isInCart(product) && (
+          <Button onClick={() => addToCart(product)}>Add to Cart</Button>
+        )}
       </ProductCardButtons>
     </CardWrapper>
   );
