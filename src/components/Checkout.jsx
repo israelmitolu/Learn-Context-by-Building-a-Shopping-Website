@@ -22,13 +22,17 @@ const Checkout = () => {
   );
 };
 
+// Styled Components
+
 const Wrapper = styled.div`
   margin-top: 3rem;
   border: 1px solid #000;
+  padding: 1.5rem;
 
   p,
   h4 {
     margin: 1rem;
+    font-size: large;
   }
 `;
 

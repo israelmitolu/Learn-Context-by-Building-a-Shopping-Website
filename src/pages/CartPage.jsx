@@ -2,11 +2,11 @@ import CartItem from "../components/CartItem";
 import { useContext } from "react";
 import CartContext from "../Context/Cart/CartContext";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 import Checkout from "../components/Checkout";
+import { Link } from "react-router-dom";
 
 const CartPage = () => {
-  const { cartItems, checkout } = useContext(CartContext);
+  const { cartItems, checkout, clearCart } = useContext(CartContext);
 
   return (
     <>
@@ -17,6 +17,19 @@ const CartPage = () => {
         </h1>
       </Heading>
 
+      {checkout && (
+        <CheckoutMsg>
+          <h4>Thank you for your purchase!</h4>
+          <p>
+            Your order has been placed and will be delivered to you within 24
+            hours.
+          </p>
+          <Link to="/">
+            <button onClick={clearCart}>Continue Shopping</button>
+          </Link>
+        </CheckoutMsg>
+      )}
+
       <Layout>
         <div>
           {
@@ -24,7 +37,7 @@ const CartPage = () => {
               {/* If cart is empty, display message, and if not, display each cart
             Item in cart: {cartItems.length} */}
               {cartItems.length === 0 ? (
-                <h4>Cart is empty</h4>
+                <h4 style={{}}>Cart is empty</h4>
               ) : (
                 <ul>
                   {cartItems.map((product) => (
@@ -53,12 +66,13 @@ const Heading = styled.div`
 const Layout = styled.div`
   display: flex;
   justify-content: space-around;
-  align-items: center;
+  align-items: flex-start;
   margin: auto;
   width: 85%;
 
-  @media (max-width: 850px) {
+  @media (max-width: 1024px) {
     flex-direction: column;
+    align-items: center;
 
     &:nth-child(2) {
       margin-top: 3rem;
@@ -72,6 +86,12 @@ const CartItemWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+  text-align: center;
 `;
 
+const CheckoutMsg = styled.div`
+  color: green;
+  text-align: center;
+  padding: 1.5rem;
+`;
 export default CartPage;

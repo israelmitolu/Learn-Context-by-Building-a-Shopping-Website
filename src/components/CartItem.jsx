@@ -55,6 +55,7 @@ const SingleCartItem = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-around;
+  width: 100%;
 
   &:nth-child(1) {
     border-top: 1px solid gray;
@@ -69,6 +70,8 @@ const CartImage = styled.img`
 
 const BtnContainer = styled.div`
   display: flex;
+  align-items: center;
+  justify-content: space-around;
 `;
 
 const Icon = styled.img`

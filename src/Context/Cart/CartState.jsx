@@ -39,7 +39,6 @@ const CartState = ({ children }) => {
 
   //Function to handle when the user clicks the checkout button
   const handleCheckout = () => {
-    console.log("CHECKOUT", state.total);
     dispatch({ type: "CHECKOUT" });
   };
 
