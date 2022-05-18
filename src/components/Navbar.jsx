@@ -23,8 +23,8 @@ const Navbar = () => {
     };
   }, []);
 
-  // Extract cartItems state from CartContext
-  const { cartItems, showHideCart } = useContext(CartContext);
+  // Extract itemscount from CartContext
+  const { cartItems } = useContext(CartContext);
 
   return (
     <Nav>
@@ -44,10 +44,10 @@ const Navbar = () => {
           >
             <NavList>
               <NavItem>
-                <NavLink to={"/"}>Store</NavLink>
+                <NavLink to="/">Store</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink to={"/about"}>About</NavLink>
+                <NavLink to="/about">About</NavLink>
               </NavItem>
               <NavItem>
                 <a href="https://twitter.com/israelmitolu" target="_blank">
@@ -55,9 +55,9 @@ const Navbar = () => {
                 </a>
               </NavItem>
               <NavItem>
-                <span>
+                <Link to="/cart">
                   <p>Cart</p>
-                  <NavCartItem onClick={showHideCart}>
+                  <NavCartItem>
                     <img src={CartIcon} alt="Shopping cart" />
                     {/* If the number of cartItems is greater than 0, display the
                     number of items in the cart */}
@@ -65,7 +65,7 @@ const Navbar = () => {
                       <CartCircle>{cartItems.length}</CartCircle>
                     )}
                   </NavCartItem>
-                </span>
+                </Link>
               </NavItem>
             </NavList>
           </NavRightContainer>

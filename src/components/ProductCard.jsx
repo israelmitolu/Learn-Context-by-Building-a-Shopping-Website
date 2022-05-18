@@ -5,9 +5,10 @@ import CartContext from "../Context/Cart/CartContext";
 import { useContext } from "react";
 
 const ProductCard = ({ product }) => {
-  const { addToCart, cartItems } = useContext(CartContext);
+  const { addToCart, increase, cartItems, sumItems, itemCount } =
+    useContext(CartContext);
 
-  //Whether the product is in the cart or not
+  //Check whether the product is in the cart or not
   const isInCart = (product) => {
     return !!cartItems.find((item) => item.id === product.id);
   };
@@ -26,7 +27,12 @@ const ProductCard = ({ product }) => {
         </Link>
 
         {isInCart(product) && (
-          <ButtonAddMore onClick={() => addToCart(product)} className="btn">
+          <ButtonAddMore
+            onClick={() => {
+              increase(product);
+            }}
+            className="btn"
+          >
             Add More
           </ButtonAddMore>
         )}

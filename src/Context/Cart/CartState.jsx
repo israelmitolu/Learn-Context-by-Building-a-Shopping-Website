@@ -1,7 +1,6 @@
 import { useReducer } from "react";
 import CartContext from "./CartContext";
 import CartReducer from "./CartReducer";
-import { ADD_TO_CART, REMOVE_ITEM, SHOW_HIDE_CART } from "./CartTypes";
 
 const CartState = ({ children }) => {
   //Initial State of the cart
@@ -14,26 +13,23 @@ const CartState = ({ children }) => {
   const [state, dispatch] = useReducer(CartReducer, initialState);
 
   //Function to handle when an item is added from the store into the Cart
-  const addToCart = (item) => {
-    dispatch({
-      type: ADD_TO_CART,
-      payload: item,
-    });
+  const addToCart = (payload) => {
+    dispatch({ type: "ADD_TO_CART", payload });
   };
 
-  //Function to Show / Hide the Cart component, and since its a boolean, we won't need to pass any payload
-  const showHideCart = () => {
-    dispatch({
-      type: SHOW_HIDE_CART,
-    });
+  //Function to handle when an item that is in the cart is added again
+  const increase = (payload) => {
+    dispatch({ type: "INCREASE", payload });
+  };
+
+  //Function to handle when an item is removed from the cart
+  const decrease = (payload) => {
+    dispatch({ type: "DECREASE", payload });
   };
 
   //Function to remove an item from the cart
-  const removeFromCart = (id) => {
-    dispatch({
-      type: REMOVE_ITEM,
-      payload: id,
-    });
+  const removeFromCart = (payload) => {
+    dispatch({ type: "REMOVE_ITEM", payload });
   };
 
   return (
@@ -43,8 +39,9 @@ const CartState = ({ children }) => {
         showCart: state.showCart,
         cartItems: state.cartItems,
         addToCart,
-        showHideCart,
         removeFromCart,
+        increase,
+        decrease,
       }}
     >
       {children}

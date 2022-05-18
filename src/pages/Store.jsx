@@ -26,8 +26,6 @@ const Heading = styled.div`
 `;
 
 const ProductsContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
   max-width: 1024px;
   width: 80%;
   margin: 70px auto 0;
