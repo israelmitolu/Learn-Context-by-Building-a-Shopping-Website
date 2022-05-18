@@ -25,7 +25,7 @@ const CartPage = () => {
             hours.
           </p>
           <Link to="/">
-            <button onClick={clearCart}>Continue Shopping</button>
+            <ShopBtn onClick={clearCart}>Continue Shopping</ShopBtn>
           </Link>
         </CheckoutMsg>
       )}
@@ -93,5 +93,24 @@ const CheckoutMsg = styled.div`
   color: green;
   text-align: center;
   padding: 1.5rem;
+
+  p {
+    margin: 0.5rem 0 1.5rem 0;
+  }
+`;
+
+const ShopBtn = styled.button`
+  outline: none;
+  border: 1px solid green;
+  background-color: transparent;
+  padding: 0.75rem;
+  color: green;
+  margin-top: 1rem;
+  cursor: pointer;
+
+  &:hover {
+    background-color: green;
+    color: white;
+  }
 `;
 export default CartPage;

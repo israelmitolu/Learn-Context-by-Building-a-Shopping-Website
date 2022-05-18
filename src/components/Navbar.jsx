@@ -44,10 +44,14 @@ const Navbar = () => {
           >
             <NavList>
               <NavItem>
-                <NavLink to="/">Store</NavLink>
+                <NavLink to="/" onClick={() => setToggle(!toggle)}>
+                  Store
+                </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink to="/about">About</NavLink>
+                <NavLink to="/about" onClick={() => setToggle(!toggle)}>
+                  About
+                </NavLink>
               </NavItem>
               <NavItem>
                 <a href="https://twitter.com/israelmitolu" target="_blank">
@@ -55,7 +59,7 @@ const Navbar = () => {
                 </a>
               </NavItem>
               <NavItem>
-                <Link to="/cart">
+                <Link to="/cart" onClick={() => setToggle(!toggle)}>
                   <p>Cart</p>
                   <NavCartItem>
                     <img src={CartIcon} alt="Shopping cart" />
