@@ -22,10 +22,6 @@ const ProductCard = ({ product }) => {
       <ProductName>{product.name}</ProductName>
       <ProductCardPrice>{formatCurrency(product.price)}</ProductCardPrice>
       <ProductCardButtons>
-        <Link to="/" className="btn">
-          Details
-        </Link>
-
         {isInCart(product) && (
           <ButtonAddMore
             onClick={() => {
