@@ -1,4 +1,11 @@
-import { REMOVE_ITEM, ADD_TO_CART, INCREASE, DECREASE } from "./CartTypes.js";
+import {
+  REMOVE_ITEM,
+  ADD_TO_CART,
+  INCREASE,
+  DECREASE,
+  CHECKOUT,
+  CLEAR,
+} from "./CartTypes.js";
 
 export const sumItems = (cartItems) => {
   let itemCount = cartItems.reduce(
@@ -62,6 +69,19 @@ const CartReducer = (state, action) => {
         ...state,
         ...sumItems(state.cartItems),
         cartItems: [...state.cartItems],
+      };
+
+    case CHECKOUT:
+      return {
+        cartItems: [],
+        checkout: true,
+        ...sumItems([]),
+      };
+
+    case CLEAR:
+      return {
+        cartItems: [],
+        ...sumItems([]),
       };
 
     //Return the state if the action type is not found

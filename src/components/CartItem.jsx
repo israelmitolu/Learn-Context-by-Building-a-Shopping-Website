@@ -31,19 +31,13 @@ const CartItem = ({ product }) => {
         </div>
 
         {product.quantity > 1 && (
-          <button
-            onClick={() => decrease(product)}
-            className="btn btn-danger btn-sm mb-1"
-          >
+          <button onClick={() => decrease(product)} className="btn">
             <Icon src={Minus} alt="" />
           </button>
         )}
 
         {product.quantity === 1 && (
-          <button
-            onClick={() => removeFromCart(product)}
-            className="btn btn-danger btn-sm mb-1"
-          >
+          <button onClick={() => removeFromCart(product)} className="btn">
             <Icon src={TrashIcon} alt="" />
           </button>
         )}
