@@ -2,7 +2,6 @@ import React from "react";
 import CartItem from "../components/CartItem";
 import { useContext } from "react";
 import CartContext from "../Context/Cart/CartContext";
-import { formatCurrency } from "../utils";
 import styled from "styled-components";
 
 const CartPage = () => {
