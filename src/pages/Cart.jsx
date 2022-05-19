@@ -5,7 +5,7 @@ import styled from "styled-components";
 import Checkout from "../components/Checkout";
 import { Link } from "react-router-dom";
 
-const CartPage = () => {
+const Cart = () => {
   const { cartItems, checkout, clearCart } = useContext(CartContext);
 
   return (
@@ -113,4 +113,4 @@ const ShopBtn = styled.button`
     color: white;
   }
 `;
-export default CartPage;
+export default Cart;
