@@ -7,7 +7,17 @@ import {
   CLEAR,
 } from "./CartTypes.js";
 
+// Save the cartItems to local storage
+const Storage = (cartItems) => {
+  localStorage.setItem(
+    "cartItems",
+    JSON.stringify(cartItems.length > 0 ? cartItems : [])
+  );
+};
+
+// Export function to calculate the total price of the cart and the total quantity of the cart
 export const sumItems = (cartItems) => {
+  Storage(cartItems);
   let itemCount = cartItems.reduce(
     (total, product) => total + product.quantity,
     0
