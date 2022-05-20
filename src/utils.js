@@ -4,3 +4,5 @@ export const formatCurrency = (number) => {
     currency: "NGN",
   }).format(number);
 };
+
+// The Intl.NumberFormat object helps to format the currency. Learn about it https://docs.w3cub.com/javascript/global_objects/intl/numberformat
