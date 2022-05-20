@@ -81,6 +81,7 @@ const CartReducer = (state, action) => {
         cartItems: [...state.cartItems],
       };
 
+    // If the action type is CHECKOUT, we want to clear the cartItems array and set the checkout to true
     case CHECKOUT:
       return {
         cartItems: [],
@@ -88,6 +89,7 @@ const CartReducer = (state, action) => {
         ...sumItems([]),
       };
 
+    //If the action type is CLEAR, we want to clear the cartItems array
     case CLEAR:
       return {
         cartItems: [],

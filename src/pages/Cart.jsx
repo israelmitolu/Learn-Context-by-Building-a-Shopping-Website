@@ -6,6 +6,7 @@ import Checkout from "../components/Checkout";
 import { Link } from "react-router-dom";
 
 const Cart = () => {
+  // Extract the cart state from the context
   const { cartItems, checkout, clearCart } = useContext(CartContext);
 
   return (
@@ -58,6 +59,7 @@ const Cart = () => {
   );
 };
 
+//Styled Components
 const Heading = styled.div`
   margin-top: 8rem;
   text-align: center;
